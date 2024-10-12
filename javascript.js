@@ -27,3 +27,26 @@ function operate(operator, firstNumber, secondNumber) {
   else if (operator == "*") return multiply(firstNumber, secondNumber);
   else if (operator == "/") return divide(firstNumber, secondNumber);
 }
+
+// Function to populate display
+function populateDisplay() {
+  const numbers = document.querySelectorAll(".number");
+  // Get reference to display div to populate the display
+  const display = document.querySelector(".display");
+
+  let count = 0;
+
+  numbers.forEach((number) =>
+    number.addEventListener("click", (e) => {
+      // Create an element to insert number onto display
+      // Can display only 19 numbers given the display width
+      // Display width = 274 px, Each span number = 14.86 px, 274 / 14.86 = 18.43
+      if (count < 18) {
+        const span = document.createElement("span");
+        span.textContent = e.target.textContent;
+        display.appendChild(span);
+        count++;
+      }
+    })
+  );
+}
