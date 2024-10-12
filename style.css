@@ -69,3 +69,9 @@ button {
 hr {
   border-top: 6px solid goldenrod;
 }
+
+.display {
+  color: #000080;
+  font-size: 28px;
+  text-align: right;
+}
