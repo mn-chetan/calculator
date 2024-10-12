@@ -74,4 +74,10 @@ hr {
   color: #000080;
   font-size: 28px;
   text-align: right;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.ui .row button:hover {
+  background-color: black;
+  color: white;
 }
