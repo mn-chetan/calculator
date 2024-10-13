@@ -15,11 +15,6 @@ function divide(a, b) {
   return a / b;
 }
 
-// User input will consist of 2 numbers and an operator
-let firstNumber = 0,
-  secondNumber = 0,
-  operator = "";
-
 // Function which calls the appropriate function based on user choice
 function operate(operator, firstNumber, secondNumber) {
   if (operator == "+") return add(firstNumber, secondNumber);
@@ -39,7 +34,7 @@ function populateDisplay() {
   numbers.forEach((number) =>
     number.addEventListener("click", (e) => {
       // Create an element to insert number onto display
-      // Can display only 19 numbers given the display width
+      // Can display only 18 numbers given the display width
       // Display width = 274 px, Each span number = 14.86 px, 274 / 14.86 = 18.43
       if (count < 18) {
         const span = document.createElement("span");
@@ -49,4 +44,8 @@ function populateDisplay() {
       }
     })
   );
+
+  // Clicking on AC should clear the display
+  const ac = document.querySelector(".ac");
+  ac.addEventListener("click", () => (display.textContent = ""));
 }
