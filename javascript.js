@@ -15,6 +15,10 @@ function divide(a, b) {
   return a / b;
 }
 
+function percent(a) {
+  return a / 100;
+}
+
 // Function which calls the appropriate function based on user choice
 function operate(operator, firstNumber, secondNumber) {
   if (operator == "+") return add(firstNumber, secondNumber);
