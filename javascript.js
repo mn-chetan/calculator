@@ -44,8 +44,4 @@ function populateDisplay() {
       }
     })
   );
-
-  // Clicking on AC should clear the display
-  const ac = document.querySelector(".ac");
-  ac.addEventListener("click", () => (display.textContent = ""));
 }
