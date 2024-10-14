@@ -41,11 +41,7 @@ function enterNumber() {
   const numbers = document.querySelectorAll(".number");
   numbers.forEach((number) =>
     number.addEventListener("click", (e) => {
-      // Can only display 19 numbers max before display starts to overflow
-      if (count < 19) {
-        display.textContent += e.target.textContent;
-        count++;
-      }
+      display.textContent += e.target.textContent;
     })
   );
 }
