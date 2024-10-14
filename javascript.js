@@ -30,31 +30,3 @@ function operate(operator, firstNumber, secondNumber) {
 
 const arr = []; // Array to keep track of numbers and operators
 
-// Function to let users enter number
-function enterNumber() {
-  // Display is where the numbers should be displayed
-  const display = document.querySelector(".display");
-
-  // When user clicks on a number show number on screen
-  const numbers = document.querySelectorAll(".number");
-  numbers.forEach((number) =>
-    number.addEventListener("click", (e) => {
-      display.textContent += e.target.textContent;
-    })
-  );
-}
-
-// Function to let users enter operator
-function enterOperator() {
-  // Display contains the current number on screen
-  const display = document.querySelector(".display");
-
-  // Get reference to all operators
-  const operations = document.querySelectorAll(".operation");
-  operations.forEach((operator) =>
-    operator.addEventListener("click", (e) => {
-      arr.push(display.textContent);
-      arr.push(e.target.textContent);
-    })
-  );
-}
