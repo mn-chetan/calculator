@@ -25,6 +25,7 @@ function operate(operator, firstNumber, secondNumber) {
   else if (operator == "-") return subtract(firstNumber, secondNumber);
   else if (operator == "*") return multiply(firstNumber, secondNumber);
   else if (operator == "/") return divide(firstNumber, secondNumber);
+  else if (operator == "%") return percent(firstNumber);
 }
 
 // Function to populate display
