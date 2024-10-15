@@ -30,6 +30,8 @@ function operate(operator, firstNumber, secondNumber) {
 
 const arr = []; // Array to keep track of numbers and operators
 
+let operatorClicked = false; // Flag to check if operator is clicked
+
 // Function to enter numbers on to display
 function enterNumber() {
   const display = document.querySelector(".display");
@@ -39,6 +41,10 @@ function enterNumber() {
   const numbers = document.querySelectorAll(".number");
   numbers.forEach((number) =>
     number.addEventListener("click", (e) => {
+      if (operatorClicked) {
+        display.textContent = "";
+        operatorClicked = false;
+      }
       if (display.textContent.length < maxLength)
         display.textContent += e.target.textContent;
     })
@@ -57,7 +63,7 @@ function enterOperator() {
       if (display.textContent) {
         arr.push(display.textContent);
         arr.push(e.target.textContent);
-        display.textContent = "";
+        operatorClicked = true;
       }
     })
   );
