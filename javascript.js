@@ -81,7 +81,14 @@ function enterEqual() {
   equal.addEventListener("click", () => {
     if (arr.length == 2) arr.push(display.textContent);
     const result = operate(arr[1], Number(arr[0]), Number(arr[2]));
-    display.textContent = result;
+    // Display result if it is within 15 digits else display NaN
+    if (
+      String(result)
+        .split("")
+        .reduce((accumulator) => accumulator + 1, 0) <= 15
+    )
+      display.textContent = result;
+    else display.textContent = NaN;
     arr.splice(0, arr.length, result);
   });
 }
