@@ -44,3 +44,25 @@ function enterNumber() {
     })
   );
 }
+
+// Function to enter operator
+function enterOperator() {
+  const display = document.querySelector(".display");
+
+  const operations = document.querySelectorAll(".operation");
+  operations.forEach((operator) =>
+    operator.addEventListener("click", (e) => {
+      // Operator can be entered only when display has digits
+      // Can't perform operations on nothing
+      if (display.textContent) {
+        arr.push(display.textContent);
+        arr.push(e.target.textContent);
+      }
+    })
+  );
+}
+
+function main() {
+  enterNumber();
+  enterOperator();
+}
