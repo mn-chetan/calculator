@@ -76,8 +76,21 @@ function enterEqual() {
   });
 }
 
+// Function to clear display and array when user clicks on AC
+function clearAll() {
+  const display = document.querySelector(".display");
+
+  const ac = document.querySelector(".ac");
+
+  ac.addEventListener("click", () => {
+    display.textContent = "";
+    arr.splice(0, arr.length);
+  });
+}
+
 function main() {
   enterNumber();
   enterOperator();
   enterEqual();
+  clearAll();
 }
