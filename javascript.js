@@ -32,16 +32,15 @@ const arr = []; // Array to keep track of numbers and operators
 
 // Function to enter numbers on to display
 function enterNumber() {
-  // Get reference to display to display number
   const display = document.querySelector(".display");
 
-  let count = 0; // Keep track of how many digits have been entered
+  const maxLength = 15; // Restrict digits to 15 to prevent display overflow
 
-  // Add on click event listener to numbers
   const numbers = document.querySelectorAll(".number");
   numbers.forEach((number) =>
     number.addEventListener("click", (e) => {
-      display.textContent += e.target.textContent;
+      if (display.textContent.length < maxLength)
+        display.textContent += e.target.textContent;
     })
   );
 }
