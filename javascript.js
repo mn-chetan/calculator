@@ -57,12 +57,27 @@ function enterOperator() {
       if (display.textContent) {
         arr.push(display.textContent);
         arr.push(e.target.textContent);
+        display.textContent = "";
       }
     })
   );
 }
 
+// Function to operate when user enters equal to sign(=)
+function enterEqual() {
+  const display = document.querySelector(".display");
+
+  const equal = document.querySelector(".equal");
+
+  equal.addEventListener("click", () => {
+    if (arr.length == 2) arr.push(display.textContent);
+    const result = operate(arr[1], Number(arr[0]), Number(arr[2]));
+    display.textContent = result;
+  });
+}
+
 function main() {
   enterNumber();
   enterOperator();
+  enterEqual();
 }
