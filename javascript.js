@@ -58,9 +58,12 @@ function enterOperator() {
   const operations = document.querySelectorAll(".operation");
   operations.forEach((operator) =>
     operator.addEventListener("click", (e) => {
-      // Operator can be entered only when display has digits
-      // Can't perform operations on nothing
-      if (display.textContent) {
+      // If array contains one digit
+      // Push new operator into array
+      if (arr.length == 1) {
+        arr.push(e.target.textContent);
+        operatorClicked = true;
+      } else {
         arr.push(display.textContent);
         arr.push(e.target.textContent);
         operatorClicked = true;
@@ -79,6 +82,7 @@ function enterEqual() {
     if (arr.length == 2) arr.push(display.textContent);
     const result = operate(arr[1], Number(arr[0]), Number(arr[2]));
     display.textContent = result;
+    arr.splice(0, arr.length, result);
   });
 }
 
