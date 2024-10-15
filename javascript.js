@@ -58,9 +58,14 @@ function enterOperator() {
   const operations = document.querySelectorAll(".operation");
   operations.forEach((operator) =>
     operator.addEventListener("click", (e) => {
-      // If array contains one digit
-      // Push new operator into array
-      if (arr.length == 1) {
+      // If user enters an operator again without clicking equal
+      // Mimic equal sign behavior
+      if (arr.length == 2) {
+        const equal = document.querySelector(".equal");
+        equal.click();
+        arr.push(e.target.textContent);
+        operatorClicked = true;
+      } else if (arr.length == 1) {
         arr.push(e.target.textContent);
         operatorClicked = true;
       } else {
@@ -111,3 +116,5 @@ function main() {
   enterEqual();
   clearAll();
 }
+
+main();
