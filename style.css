@@ -75,3 +75,8 @@ hr {
   font-family: monospace, "Roboto Mono", sans-serif;
   text-align: right;
 }
+
+button:hover {
+  background-color: #e7eaf6;
+  color: #113f67;
+}
