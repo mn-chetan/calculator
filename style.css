@@ -67,3 +67,11 @@ button {
 hr {
   border: 6px solid goldenrod;
 }
+
+.display {
+  color: #a55233;
+  font-variant-numeric: tabular-nums;
+  font-size: 32px;
+  font-family: monospace, "Roboto Mono", sans-serif;
+  text-align: right;
+}
