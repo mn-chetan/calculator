@@ -37,6 +37,14 @@ function enterOperator() {
   const operators = document.querySelectorAll(".operator");
   operators.forEach((operator) =>
     operator.addEventListener("click", (e) => {
+      // Handle percentage operator separately
+      if (e.target.textContent === "%") {
+        let number = Number(display.textContent);
+        let percentageResult = percent(number); // Use the percent function
+        display.textContent = percentageResult;
+        return; // Exit early to prevent further operator logic
+      }
+
       // After =, calculatorArray contains 1 digit
       // In that case just push operator
       // Else push number and operator
@@ -47,11 +55,6 @@ function enterOperator() {
         operatorPressed = true;
         calculationArray.push(display.textContent);
         calculationArray.push(e.target.textContent);
-        if (e.target.textContent == "%") {
-          const result = percent(Number(display.textContent));
-          display.textContent = result;
-          calculationArray.splice(0, calculationArray.length, result);
-        }
       }
 
       // When user enters an operator without clicking =, display the result first
