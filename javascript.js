@@ -44,6 +44,7 @@ function enterOperator() {
         calculationArray.push(e.target.textContent);
       }
 
+      // When user enters an operator without clicking =, display the result first
       if (calculationArray.length == 4) {
         const result = operate(
           calculationArray[1],
@@ -55,6 +56,24 @@ function enterOperator() {
       }
     })
   );
+}
+
+function enterEqual() {
+  const display = document.querySelector(".display");
+
+  const equal = document.querySelector(".equal");
+  equal.addEventListener("click", () => {
+    if (calculationArray.length == 2) {
+      calculationArray.push(display.textContent);
+      const result = operate(
+        calculationArray[1],
+        Number(calculationArray[0]),
+        Number(calculationArray[2])
+      );
+      display.textContent = result;
+      calculationArray.splice(0, 3, result);
+    }
+  });
 }
 
 function add(a, b) {
@@ -89,6 +108,7 @@ function main() {
   enterNumber();
   enterDecimal();
   enterOperator();
+  enterEqual();
 }
 
 main();
