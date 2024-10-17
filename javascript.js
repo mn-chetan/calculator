@@ -2,7 +2,7 @@ let calculationArray = [];
 let operatorPressed = false;
 
 function enterNumber() {
-  const maxLength = 17; // User can enter only 17 before display overflows
+  const maxLength = 17; // Limit input length to prevent display overflow
 
   const display = document.querySelector(".display");
 
@@ -35,12 +35,15 @@ function enterOperator() {
   const operators = document.querySelectorAll(".operator");
   operators.forEach((operator) =>
     operator.addEventListener("click", (e) => {
-      if (display.textContent) {
+      // After =, calculatorArray contains 1 digit
+      // In that case just push operator
+      // Else push number and operator
+      if (calculationArray.length == 1) {
         operatorPressed = true;
-
-        // Push the current number into array
+        calculationArray.push(e.target.textContent);
+      } else if (display.textContent) {
+        operatorPressed = true;
         calculationArray.push(display.textContent);
-        // Push the operator into the array
         calculationArray.push(e.target.textContent);
       }
 
