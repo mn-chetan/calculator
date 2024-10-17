@@ -1,5 +1,5 @@
 function enterNumber() {
-  const maxLength = 17;
+  const maxLength = 17; // User can enter only 17 before display overflows
 
   const display = document.querySelector(".display");
 
