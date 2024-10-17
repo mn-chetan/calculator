@@ -25,7 +25,9 @@ function enterDecimal() {
 
   const decimal = document.querySelector(".decimal");
   decimal.addEventListener("click", () => {
-    if (display.textContent.indexOf(".") == -1) display.textContent += ".";
+    if (display.textContent.indexOf(".") == -1) {
+      display.textContent += ".";
+    }
   });
 }
 
@@ -45,6 +47,11 @@ function enterOperator() {
         operatorPressed = true;
         calculationArray.push(display.textContent);
         calculationArray.push(e.target.textContent);
+        if (e.target.textContent == "%") {
+          const result = percent(Number(display.textContent));
+          display.textContent = result;
+          calculationArray.splice(0, calculationArray.length, result);
+        }
       }
 
       // When user enters an operator without clicking =, display the result first
@@ -76,6 +83,16 @@ function enterEqual() {
       display.textContent = result;
       calculationArray.splice(0, 3, result);
     }
+  });
+}
+
+function enterClear() {
+  const display = document.querySelector(".display");
+
+  const clear = document.querySelector(".clear");
+  clear.addEventListener("click", () => {
+    calculationArray.splice(0, calculationArray.length);
+    display.textContent = "";
   });
 }
 
@@ -112,6 +129,7 @@ function main() {
   enterDecimal();
   enterOperator();
   enterEqual();
+  enterClear();
 }
 
 main();
