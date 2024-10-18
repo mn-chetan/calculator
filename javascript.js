@@ -106,8 +106,8 @@ function enterBackspace() {
   backspace.addEventListener("click", () => {
     const number = display.textContent.split("");
     number.splice(-1, 1);
-    number.join("");
-    display.textContent = number;
+    const result = number.join("");
+    display.textContent = result;
   });
 }
 
