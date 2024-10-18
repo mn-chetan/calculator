@@ -99,6 +99,18 @@ function enterClear() {
   });
 }
 
+function enterBackspace() {
+  const display = document.querySelector(".display");
+
+  const backspace = document.querySelector(".backspace");
+  backspace.addEventListener("click", () => {
+    const number = display.textContent.split("");
+    number.splice(-1, 1);
+    number.join("");
+    display.textContent = number;
+  });
+}
+
 function add(a, b) {
   return a + b;
 }
@@ -133,6 +145,7 @@ function main() {
   enterOperator();
   enterEqual();
   enterClear();
+  enterBackspace();
 }
 
 main();
