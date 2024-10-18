@@ -112,24 +112,29 @@ function enterBackspace() {
 }
 
 function add(a, b) {
-  return a + b;
+  const result = a + b;
+  return roundDisplay(result);
 }
 
 function subtract(a, b) {
-  return a - b;
+  const result = a - b;
+  return roundDisplay(result);
 }
 
 function multiply(a, b) {
-  return a * b;
+  const result = a * b;
+  return roundDisplay(result);
 }
 
 function divide(a, b) {
   if (b == 0) return "Don't Even Try";
-  return a / b;
+  const result = a / b;
+  return roundDisplay(result);
 }
 
 function percent(a) {
-  return a / 100;
+  const result = a / 100;
+  return percent(result);
 }
 
 function operate(operator, a, b) {
@@ -137,6 +142,16 @@ function operate(operator, a, b) {
   else if (operator == "-") return subtract(a, b);
   else if (operator == "*") return multiply(a, b);
   else if (operator == "/") return divide(a, b);
+}
+
+function roundDisplay(number) {
+  if (String(number).indexOf(".") == -1) {
+    if (String(number) < 18) return number;
+    else return NaN;
+  } else {
+    if (String(number).indexOf(".") >= 16) return NaN;
+    else return number.toFixed(16 - String(number).indexOf("."));
+  }
 }
 
 function main() {
