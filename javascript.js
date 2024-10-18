@@ -134,8 +134,7 @@ function divide(a, b) {
 }
 
 function percent(a) {
-  const result = a / 100; // Calculate percentage
-  return percent(result); // Return the percentage
+  return a / 100; // Calculate percentage
 }
 
 function operate(operator, a, b) {
