@@ -145,12 +145,21 @@ function operate(operator, a, b) {
 }
 
 function roundDisplay(number) {
-  if (String(number).indexOf(".") == -1) {
-    if (String(number) < 18) return number;
-    else return NaN;
+  const numberStr = String(number);
+  const decimalIndex = numberStr.indexOf(".");
+  const scientificIndex = numberStr.indexOf("e");
+
+  if (decimalIndex === -1) {
+    return numberStr.length < 18 ? number : NaN;
   } else {
-    if (String(number).indexOf(".") >= 16) return NaN;
-    else return number.toFixed(16 - String(number).indexOf("."));
+    if (decimalIndex > 16) return NaN;
+
+    const precision = 16 - decimalIndex;
+    if (scientificIndex === -1) {
+      return number.toFixed(precision);
+    } else {
+      return scientificIndex < 17 ? number.toFixed(precision) : NaN;
+    }
   }
 }
 
